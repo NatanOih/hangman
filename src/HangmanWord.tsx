@@ -8,7 +8,6 @@ type wordTypeprops = {
 }
 
 export const HangmanWord = ({word, guessedLetters, reveal= false}: wordTypeprops ) => {
-    console.log('reveal', reveal)
     const wordToGuess = String(word).toUpperCase()
     return (
         <div className='word-container'>

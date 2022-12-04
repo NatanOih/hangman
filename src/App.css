@@ -3,19 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
 
 body {
+  text-align: center;
   user-select: none;
   margin: 0;
+  padding: 0;
   font-family: 'Knewave', cursive;
-  height: 100vh;
-}
+  overflow: hidden;
 
-#root {
-  text-align: center;
-  margin: 0;
-  
+
 }
 
 .winLose{
+ 
   position: absolute;
   top: 15%;
   left: 15%;
@@ -26,9 +25,8 @@ body {
     text-shadow: 11px -11px 45px rgba(255, 255, 255, 0.884);
 }
 .spacer {
-  /* aspect-ratio: 1800/600; */
-  width: 100%;
-  height: 100vh;
+  /* width: 100%; */
+ 
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -42,16 +40,20 @@ body {
 
   position: relative;
   scale: 0.75;
-  /* bottom: 100px ; */
+  bottom: 50px ;
 }
 
 .stickman{
   animation: hang 1s infinite ease-in-out ;
-  
+}
+
+.refresh {
+  position: relative;
+  bottom: 70px;
 }
 
 .word-container {
-  bottom: 50px;
+  bottom: 100px;
   display: flex;
   position: relative;
   gap: .25em;
@@ -136,14 +138,16 @@ body {
 
 }
 
+
+
 .keyBoard-container {
   
   position: relative;
-  /* bottom: 70px; */
-  border-radius: 40px;
-  border: 3px solid;
+  bottom: 80px;
+  border-radius: 30px;
+  border: 2px solid;
   padding: 1rem;
-  background-color: #213547;
+  background-color: #3748579f;
   box-shadow: -3px -4px 3px 3px rgba(33, 33, 33, .6);
   
 }
@@ -213,6 +217,10 @@ body {
 }
 
 @media screen and (max-width: 900px){ 
+
+    .spacer {
+      height: 100vh;
+    }
     .drawing{
       scale: 0.8;
       /* bottom: 100px ; */
@@ -227,4 +235,43 @@ body {
       height: 31px;
       border-radius: 10px;
     }
+}
+
+
+/* CSS */
+.button-89 {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #fdfdff;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
 }

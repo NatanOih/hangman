@@ -8,14 +8,14 @@ import words from "./wordList.json"
 
 function App() {
   const [wordToGuess, setWordToGuess] = useState(() => {
-    return words[Math.floor(Math.random() * words.length)]
+    
+    return words[Math.floor(Math.random() * words.length)].toUpperCase()
   })
 
 
 
   
   const [guessedLetters, setGuessedLetters] = useState<string[]>([])
-
   
   const incorrectLetters = guessedLetters.filter(letter => !wordToGuess.includes(letter))
   const isLoser = incorrectLetters.length >= 6
@@ -64,8 +64,11 @@ function App() {
       {isLoser && "Loser!"}
     </div>
 
-    <HangmanDrawing numberOfGuesses = {guessedLetters.length}/>
-    
+    <HangmanDrawing numberOfGuesses = {incorrectLetters.length}/>
+      <div className='refresh'>
+      <button className ="button-89" onClick={() => window.location.reload()}> Restart </button> 
+      </div>
+       
     <HangmanWord 
       reveal = {isLoser}
       word= {wordToGuess} 
